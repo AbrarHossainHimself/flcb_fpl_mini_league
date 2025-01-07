@@ -1,0 +1,76 @@
+body {
+    margin: 20px;
+    font-family: 'Open Sans', sans-serif; /* Choose a font you like */
+    background-color: #f5f5f5; /* Light gray background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px; /* More padding */
+    background-color: #fff; /* White container background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.header {
+    margin-bottom: 40px; /* More space */
+    text-align: center; /* Center align title */
+}
+
+h1 {
+    font-size: 2.5rem; /* Larger title */
+    font-weight: 600;
+    color: #20a39e; /* Use your highlight color */
+    margin-bottom: 10px; /* Space between title and last updated */
+}
+
+.last-updated {
+    color: #777; /* Slightly darker gray */
+    font-size: 0.9rem;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    box-shadow: none; /* Remove table shadow if you use container shadow */
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f8f9fa;
+    white-space: nowrap;
+    padding: 12px 15px; /* More padding */
+    text-align: left;
+    border-bottom: 2px solid #ddd; /* Subtle border */
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Highlight top 3 rows - you can also add these colors to your main color scheme */
+tr:nth-child(1) {
+    background-color: #20a39e;
+    color: #fff;
+}
+
+tr:nth-child(2) {
+    background-color: #ffba49;
+    color: #fff;
+}
+
+tr:nth-child(3) {
+    background-color: #ef5b5b;
+    color: #fff;
+}
+
+/* Hover effect for other rows */
+tr:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+}
