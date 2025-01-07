@@ -13,7 +13,10 @@ permissions:
 jobs:
   update-data:
     runs-on: ubuntu-latest
-    
+    environment:  # Add this environment section
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Optional: This sets an output variable with the URL
+      
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
