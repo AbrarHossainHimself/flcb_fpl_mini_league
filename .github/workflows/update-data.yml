@@ -34,14 +34,19 @@ jobs:
         git commit -m "Update FPL standings" || echo "No changes to commit"
         git push
 
-    - name: Build with Jekyll (Unnecessary but included for structure)
+    - name: Build with Jekyll and Copy JSON (all in one step)
       uses: actions/jekyll-build-pages@v1
       with:
         source: ./
         destination: ./_site
-
-    - name: Copy fpl_standings.json to _site
-      run: cp fpl_standings.json _site/
+        prebuild: true 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+          echo "Running Jekyll build..."
+          bundle exec jekyll build -d _site
+          echo "Copying fpl_standings.json to _site..."
+          cp fpl_standings.json _site/
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
