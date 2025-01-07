@@ -1,12 +1,12 @@
-name: Update FPL Data
+name: Update FPL Data and Deploy
 
 on:
   schedule:
-    - cron: "0 */12 * * *" # Runs every 12 hours; adjust as needed
-  workflow_dispatch: # Allows manual trigger
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
 
 jobs:
-  update-fpl-data:
+  update-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -26,7 +26,7 @@ jobs:
     - name: Run FPL data script
       run: python fpl_data_fetcher.py
 
-    - name: Commit and push updated data
+    - name: Commit and push updated data (Optional)
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -34,37 +34,12 @@ jobs:
         git commit -m "Update FPL standings" || echo "No changes to commit"
         git push
 
-    - name: Build with Jekyll and Copy JSON (all in one step)
-      uses: actions/jekyll-build-pages@v1
-      with:
-        source: ./
-        destination: ./_site
-        prebuild: true 
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-          echo "Running Jekyll build..."
-          bundle exec jekyll build -d _site
-          echo "Copying fpl_standings.json to _site..."
-          cp fpl_standings.json _site/
-
+    - name: Configure Pages
+      uses: actions/configure-pages@v4
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./_site
-
-  deploy:
-    needs: update-fpl-data
-    permissions:
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        path: ./
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
