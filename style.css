@@ -1,3 +1,5 @@
+/* GENERAL STYLING */
+
 body {
     margin: 20px;
     font-family: 'Open Sans', sans-serif; /* Choose a font you like */
@@ -29,6 +31,8 @@ h1 {
     color: #777; /* Slightly darker gray */
     font-size: 0.9rem;
 }
+
+/* TABLE STYLING */
 
 .table-wrapper {
     overflow-x: auto;
@@ -73,4 +77,48 @@ tr:nth-child(3) {
 /* Hover effect for other rows */
 tr:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)):hover {
     background-color: #f0f0f0; /* Light gray on hover */
+}
+
+/* ROLL OF HONOR STYLING */
+
+.roll-of-honor {
+    margin-top: 40px; /* Add space above the section */
+    text-align: center; /* Center align the content */
+}
+
+.roll-of-honor h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.roll-of-honor .year {
+    margin-bottom: 25px;
+}
+
+.roll-of-honor .year h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.roll-of-honor ol {
+    list-style-type: none; /* Remove default list numbers */
+    padding: 0;
+}
+
+.roll-of-honor ol li {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+/* Add 1, 2, 3 ranking numbers */
+.roll-of-honor ol li:nth-child(1)::before {
+    content: "1. ";
+}
+
+.roll-of-honor ol li:nth-child(2)::before {
+    content: "2. ";
+}
+
+.roll-of-honor ol li:nth-child(3)::before {
+    content: "3. ";
 }
