@@ -102,7 +102,7 @@
                         </thead>
                         <tbody>
                             ${data.map((row, index) => `
-                                <tr>
+                                <tr style="${index === 0 ? 'background-color: #20a39e;' : index === 1 ? 'background-color: #ffba49;' : index === 2 ? 'background-color: #ef5b5b;' : ''}">
                                     <td>${index + 1}</td>
                                     <td>${row.Player}</td>
                                     <td>${row.Team}</td>
