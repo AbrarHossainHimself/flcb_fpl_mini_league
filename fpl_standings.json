@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-01-07T12:38:17.381561",
+  "last_updated": "2025-01-07T19:10:27.960466",
   "data": [
     {
       "Player": "Zabir Mahmud",
@@ -18,12 +18,6 @@
       "Team": "Buker Jala FC",
       "GW Total": 60,
       "Total Points": 1272
-    },
-    {
-      "Player": "Saraf Hasan Abir",
-      "Team": "Thurs de Ligt",
-      "GW Total": 71,
-      "Total Points": 1260
     },
     {
       "Player": "Mubtasim Fuad",
@@ -102,6 +96,12 @@
       "Team": "Chutzpah Boys",
       "GW Total": 75,
       "Total Points": 1115
+    },
+    {
+      "Player": "Imrul Hasan",
+      "Team": "Gaffer",
+      "GW Total": 58,
+      "Total Points": 1107
     }
   ]
 }
