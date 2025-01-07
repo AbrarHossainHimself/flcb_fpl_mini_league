@@ -2,16 +2,23 @@ name: Update FPL Data and Deploy
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */12 * * *"  # Runs every 12 hours
   workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -26,20 +33,29 @@ jobs:
     - name: Run FPL data script
       run: python fpl_data_fetcher.py
 
-    - name: Commit and push updated data (Optional)
+    - name: Check for changes
+      id: check_changes
+      run: |
+        git status --porcelain
+        echo "changes=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+
+    - name: Commit and push if there are changes
+      if: steps.check_changes.outputs.changes > 0
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add fpl_standings.json
-        git commit -m "Update FPL standings" || echo "No changes to commit"
+        git add fpl_standings.json filtered_fpl_league_standings.csv
+        git commit -m "Update FPL standings data [skip ci]"
         git push
 
     - name: Configure Pages
       uses: actions/configure-pages@v4
+      
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./
+        
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
