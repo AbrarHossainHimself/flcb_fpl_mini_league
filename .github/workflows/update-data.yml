@@ -1,4 +1,4 @@
-name: Update FPL Data and Deploy
+name: Update FPL Data
 
 on:
   schedule:
@@ -11,14 +11,12 @@ permissions:
   id-token: write
 
 jobs:
-  update-and-deploy:
+  update-data:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -33,29 +31,25 @@ jobs:
     - name: Run FPL data script
       run: python fpl_data_fetcher.py
 
-    - name: Check for changes
-      id: check_changes
-      run: |
-        git status --porcelain
-        echo "changes=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+    - name: Create .nojekyll file
+      run: touch .nojekyll
 
-    - name: Commit and push if there are changes
-      if: steps.check_changes.outputs.changes > 0
+    - name: Commit and push changes
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add fpl_standings.json filtered_fpl_league_standings.csv
-        git commit -m "Update FPL standings data [skip ci]"
+        git add .nojekyll fpl_standings.json filtered_fpl_league_standings.csv
+        git commit -m "Update FPL data [skip ci]" || echo "No changes to commit"
         git push
 
-    - name: Configure Pages
+    - name: Setup Pages
       uses: actions/configure-pages@v4
-      
+
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ./
-        
+        path: .
+
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
