@@ -33,3 +33,33 @@ jobs:
         git add fpl_standings.json
         git commit -m "Update FPL standings" || echo "No changes to commit"
         git push
+
+    - name: Build with Jekyll (Unnecessary but included for structure)
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./
+        destination: ./_site
+
+    - name: Copy fpl_standings.json to _site
+      run: cp fpl_standings.json _site/
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./_site
+
+  deploy:
+    needs: update-fpl-data
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
