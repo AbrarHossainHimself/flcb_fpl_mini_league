@@ -2,7 +2,7 @@ name: Update FPL Data
 
 on:
   schedule:
-    - cron: "*/30 * * * *"  # 0 */12 * * * Runs every 12 hours; "0 * * * *"  # Runs every hour; "*/30 * * * *"  # Runs every 30 minutes
+    - cron: "0 * * * *"  # 0 */12 * * * Runs every 12 hours; "0 * * * *"  # Runs every hour; "*/30 * * * *"  # Runs every 30 minutes
   workflow_dispatch:
 
 permissions:
