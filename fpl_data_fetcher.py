@@ -19,32 +19,17 @@ def fetch_fpl_data(api_url):
 def process_fpl_data(data, paid_players):
     """Processes the FPL data and returns a DataFrame."""
     try:
-        # Extract standings data
         standings = data["standings"]["results"]
-        
-        # Convert to DataFrame
         df = pd.DataFrame(standings)
+        filtered_df = df[df['entry'].isin(paid_players)].copy()  # Create a copy
+
+        # Apply transformations in a more explicit way
+        dropped_df = filtered_df.drop(columns=['id', 'entry', 'has_played', 'last_rank', 'rank_sort', 'rank'])
+        renamed_df = dropped_df.rename(columns={'event_total': 'GW Total', 'player_name': 'Player', 'entry_name': 'Team', 'total': 'Total Points'})
+        sorted_df = renamed_df.sort_values('Total Points', ascending=False)
+        final_df = sorted_df[['Player', 'Team', 'GW Total', 'Total Points']]
         
-        # Filter for paid players
-        filtered_df = df[df['entry'].isin(paid_players)]
-        
-        # Clean and format
-        filtered_df = filtered_df.drop(columns=[
-            'id', 'entry', 'has_played', 'last_rank', 'rank_sort', 'rank'
-        ])
-        
-        # Rename columns
-        filtered_df = filtered_df.rename(columns={
-            'event_total': 'GW Total',
-            'player_name': 'Player',
-            'entry_name': 'Team',
-            'total': 'Total Points'
-        })
-        
-        # Sort by total points
-        filtered_df = filtered_df.sort_values('Total Points', ascending=False)
-        
-        return filtered_df[['Player', 'Team', 'GW Total', 'Total Points']]
+        return final_df
         
     except Exception as e:
         print(f"Error processing data: {e}")
