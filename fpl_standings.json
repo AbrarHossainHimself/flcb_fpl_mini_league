@@ -1,29 +1,29 @@
 {
-  "last_updated": "2025-02-02T18:09:10.472198",
+  "last_updated": "2025-02-02T20:07:12.150544",
   "data": [
     {
       "Player": "Pial Rahman",
       "Team": "Buker Jala FC",
-      "GW Total": 78,
-      "Total Points": 1566
+      "GW Total": 80,
+      "Total Points": 1568
     },
     {
       "Player": "Mubtasim Fuad",
       "Team": "Avengers Fc",
-      "GW Total": 100,
-      "Total Points": 1543
-    },
-    {
-      "Player": "Yeasin Ullah",
-      "Team": "Only Tribal Chief",
-      "GW Total": 89,
-      "Total Points": 1536
+      "GW Total": 102,
+      "Total Points": 1545
     },
     {
       "Player": "Zabir Mahmud",
       "Team": "Kepaccino",
-      "GW Total": 68,
-      "Total Points": 1529
+      "GW Total": 80,
+      "Total Points": 1541
+    },
+    {
+      "Player": "Yeasin Ullah",
+      "Team": "Only Tribal Chief",
+      "GW Total": 91,
+      "Total Points": 1538
     },
     {
       "Player": "Tasnimul Sakib",
@@ -32,40 +32,40 @@
       "Total Points": 1498
     },
     {
+      "Player": "Asif Ahmed Anik",
+      "Team": "Lions of Sarr-enegal",
+      "GW Total": 85,
+      "Total Points": 1491
+    },
+    {
       "Player": "Mahbube Rabbani",
       "Team": "Tribal Chief",
       "GW Total": 82,
       "Total Points": 1484
     },
     {
-      "Player": "Asif Ahmed Anik",
-      "Team": "Lions of Sarr-enegal",
-      "GW Total": 72,
-      "Total Points": 1478
-    },
-    {
       "Player": "Muntasir Azad",
       "Team": "Stampede",
-      "GW Total": 90,
-      "Total Points": 1455
+      "GW Total": 94,
+      "Total Points": 1459
     },
     {
       "Player": "Md. Mahbubur Rahman",
       "Team": "Everton 3",
-      "GW Total": 72,
-      "Total Points": 1444
+      "GW Total": 76,
+      "Total Points": 1448
     },
     {
       "Player": "Mahedur Rahman",
       "Team": "Oldboy",
-      "GW Total": 77,
-      "Total Points": 1437
+      "GW Total": 81,
+      "Total Points": 1441
     },
     {
       "Player": "Abrar Hossain",
       "Team": "AllisonWonderland",
-      "GW Total": 73,
-      "Total Points": 1425
+      "GW Total": 86,
+      "Total Points": 1438
     },
     {
       "Player": "Tayef Rahman",
@@ -76,32 +76,32 @@
     {
       "Player": "Likhon Amin",
       "Team": "Eze Life",
-      "GW Total": 65,
-      "Total Points": 1383
+      "GW Total": 79,
+      "Total Points": 1397
     },
     {
       "Player": "Ababil Kabir",
       "Team": "Chutzpah Boys",
-      "GW Total": 67,
-      "Total Points": 1349
+      "GW Total": 69,
+      "Total Points": 1351
     },
     {
       "Player": "Shareque Zaman",
       "Team": "SpitFire �",
-      "GW Total": 61,
-      "Total Points": 1339
+      "GW Total": 68,
+      "Total Points": 1346
     },
     {
       "Player": "Asif Bin Zaman",
       "Team": "Brentford 2",
-      "GW Total": 71,
-      "Total Points": 1325
+      "GW Total": 73,
+      "Total Points": 1327
     },
     {
       "Player": "Imrul Hasan",
       "Team": "Gaffer",
-      "GW Total": 54,
-      "Total Points": 1323
+      "GW Total": 56,
+      "Total Points": 1325
     }
   ]
 }
