@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-02-15T00:36:22.044138",
+  "last_updated": "2025-02-15T02:39:47.673275",
   "data": [
     {
       "Player": "Pial Rahman",
@@ -80,6 +80,12 @@
       "Total Points": 1431
     },
     {
+      "Player": "Asif Bin Zaman",
+      "Team": "Brentford 2",
+      "GW Total": 13,
+      "Total Points": 1384
+    },
+    {
       "Player": "Ababil Kabir",
       "Team": "Chutzpah Boys",
       "GW Total": 2,
@@ -89,12 +95,6 @@
       "Player": "Shareque Zaman",
       "Team": "SpitFire �",
       "GW Total": 2,
-      "Total Points": 1382
-    },
-    {
-      "Player": "Asif Bin Zaman",
-      "Team": "Brentford 2",
-      "GW Total": 13,
       "Total Points": 1382
     },
     {
